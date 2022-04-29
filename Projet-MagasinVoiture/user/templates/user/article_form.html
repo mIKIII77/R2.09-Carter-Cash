@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h2>Formulaire d'ajout des pièces</h2>
+
+  <form method="post" id="ArticleForm" data-piece-url="{% url 'ajax_load_piece' %}" novalidate>
+    {% csrf_token %}
+    <table>
+      
+      {{ form.as_table }}
+    </table>
+    <button type="submit">Enregistrer la pièce</button>
+    <a href="{% url 'Article_changelist' %}">Annuler</a>
+  </form>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+    $("#id_ville").change(function () {
+      var url = $("#ArticleForm").attr("data-piece-url");  
+      var pieceId = $(this).val();  
+
+      $.ajax({                      
+        url: url,                    
+        data: {
+          'ville': villeId       
+        },
+        success: function (data) {  
+          $("#id_piece").html(data);  
+        }
+      });
+
+    });
+  </script>
+
+
+{% endblock %}
