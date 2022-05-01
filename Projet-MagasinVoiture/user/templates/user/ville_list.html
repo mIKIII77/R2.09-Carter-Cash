@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Toutes les villes - Carter Cash{% endblock %}
+
+{% block content %}
+
+    <h1>La liste des villes</h1>
+    {% for ville in ville_list%}
+    <li>{{ ville }} <a href="{%url 'Ville_update' ville.id %}"> Update </a> <a href="{%url 'Ville_delete' ville.id %}"> Delete </a> </li> 
+    {% empty %}
+    Votre base de données est vide ! <a href="{% url 'Piece_add' %}"> Ajouter la premiere ville</a>.
+    {% endfor %}
+
+
+{% endblock %}

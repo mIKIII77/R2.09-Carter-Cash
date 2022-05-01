@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center>
+    <h1>Page d'ajout d'une nouvelle piece</h1>
+    <br/><br/>
+    {% if submitted %}
+        La piece est bien ajouté dans la BDD !
+
+    {% else %}
+
+    <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <input type="submit" value="Ajouter la piéce">
+        </form>  
+    {%endif%} 
+    </center>
+
+{% endblock %}

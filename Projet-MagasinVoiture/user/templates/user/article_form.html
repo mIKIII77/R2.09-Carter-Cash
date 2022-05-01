@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-  <h2>Formulaire d'ajout des pièces</h2>
+<h2> Ajouter / Modifier une piéce : </h2>
+  <form class="quest" method="post" action="">
+    {% csrf_token %}
+    
+    {{form.as_p}}
+    
+    <input type="submit" name="" value="Valider">
+    
+  </form>
 
   <form method="post" id="ArticleForm" data-piece-url="{% url 'ajax_load_piece' %}" novalidate>
-    {% csrf_token %}
-    <table>
-      
-      {{ form.as_table }}
-    </table>
-    <button type="submit">Enregistrer la pièce</button>
-    <a href="{% url 'Article_changelist' %}">Annuler</a>
+    <a class="btn btn-secondary"href="/user">Retour</a>
   </form>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
     $("#id_ville").change(function () {
       var url = $("#ArticleForm").attr("data-piece-url");  
-      var pieceId = $(this).val();  
+      var villeId = $(this).val();  
 
       $.ajax({                      
         url: url,                    

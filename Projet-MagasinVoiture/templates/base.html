@@ -22,6 +22,16 @@
   </head>
   <body>
     <h1>Carter Cash</h1>
+    <li class="deroulant">
+    <a href="{% url 'Article_changelist' %}">Toutes les articles</a>
+    <a href="{% url 'Article_add' %}">Ajout article</a>
+    <a href="{% url 'Ville_add' %}">Ajout ville</a>
+    <a href="{% url 'Piece_add' %}">Ajout piece</a>
+    <a href="{% url 'Ville_list' %}">Les villes</a>
+    <a href="{% url 'Piece_list' %}">Les pieces</a>
+
+
+  </li>
     <hr>
     {% block content %}
     {% endblock %}

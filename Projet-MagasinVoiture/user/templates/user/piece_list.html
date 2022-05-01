@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Toutes les pieces - Carter Cash{% endblock %}
+
+{% block content %}
+  
+    <h1>La liste des pieces</h1>
+  
+    {% for piece in piece_list%}
+    <strong>Type : {{ piece}}</strong> <a href="{%url 'Piece_update' piece.id %}">Update</a> <a href="{%url 'Piece_delete' piece.id %}">Delete</a>
+    <ul>
+    <li>Ville :{{ piece.ville }}</li>
+    </ul>
+    {% empty %}
+      Votre base de données est vide ! <a href="{% url 'Piece_add' %}"> Ajouter la premiere piéce</a>.
+    {% endfor %}
+    
+
+
+{% endblock %}

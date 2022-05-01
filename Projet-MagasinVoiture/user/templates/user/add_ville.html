@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center>
+    <h1>Page d'ajout d'une nouvelle ville</h1>
+    <br/><br/>
+    {% if submitted %}
+        La ville est bien ajouté dans la BDD !
+
+    {% else %}
+
+    <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <input type="submit" value="Ajouter la ville">
+        </form>  
+    {%endif%} 
+    </center>
+
+{% endblock %}

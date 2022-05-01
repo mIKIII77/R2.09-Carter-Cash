@@ -12,24 +12,25 @@
   <table border="1">
     <thead>
       <tr>
-        <th>Nom de la pièce</th>
+        <th>Article</th>
         <th>Date d'ajout</th>
-        <th>Référence constructeur</th>
         <th>Ville</th>
         <th>Pièce</th>
       </tr>
     </thead>
     <tbody>
-      {% for article in articles %}
+      {% for Article in Articles %}
         <tr>
-          <td><a href="{% url 'Article_change' Article.pk %}">{{ Article.nom_piece }}</a></td>
+          <td><a href="{% url 'Article_change' Article.pk %}">{{ Article.name}}</a></td>
           <td>{{ Article.date_ajout }}</td>
-          <td>{{ Article.piece.nom_piece }}</td>
-          <td>{{ Article.ville.nom_piece }}</td>
+          <td>{{ Article.ville.name }}</td>
+          <td>{{ Article.piece.name }}</td>     
+          <td><a href="{%url 'Article_delete' Article.pk %}"> Delete </a> 
+          </td>
         </tr>
       {% empty %}
         <tr>
-          <td colspan="4">Votre base de données est vide ! <a href="{% url 'Article_add' %}"> Ajouter la premiere piéce</a>.</td>
+          <td colspan="4">Votre base de données est vide ! <a href="{% url 'Article_add' %}"> Ajouter le premiere article</article></a>.</td>
         </tr>
       {% endfor %}
     </tbody>
