@@ -3,13 +3,39 @@
 {% block title %}Toutes les villes - Carter Cash{% endblock %}
 
 {% block content %}
-
+<center>
+<head>
+  <div class="top-article-list">
     <h1>La liste des villes</h1>
-    {% for ville in ville_list%}
-    <li>{{ ville }} <a href="{%url 'Ville_update' ville.id %}"> Update </a> <a href="{%url 'Ville_delete' ville.id %}"> Delete </a> </li> 
-    {% empty %}
-    Votre base de données est vide ! <a href="{% url 'Piece_add' %}"> Ajouter la premiere ville</a>.
+  </div>  
+  </center>
+<body class="body-article-list">
+  <div class="article-table">
+    <table class="table table-secondary table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark">
+          <th scope="col">Nom de la ville</th>
+          <th scope="col"><th class="table-top" scope="col"><a class="btn btn-secondary btn-sm" href="{% url 'Ville_add' %}">Ajouter une ville</a>
+          </th>
+          <caption>La table des villes actuellement présents dans la base de données du Carter Cash</caption>
+
+        </tr>
+        </thead>
+        {% for ville in ville_list %}
+        <tr>
+          <td>{{ ville }}</td>    
+          <td> <a href="{%url 'Ville_update' ville.id %}"type="button" class="btn btn-outline-success" > Mettre à jour </a> </td> 
+          <td><a href="{%url 'Ville_delete' ville.id %}" type="button" class="btn btn-danger"> Supprimer </a> </td>
+        </tr>
+        {% empty %}
+      </table>
+        <tr>
+          <td colspan="4">Votre base de données est vide ! <a href="{% url 'Ville_add' %}"> Ajouter la premiere ville</article></a>.</td>
+        </tr>
+    </tbody>
     {% endfor %}
+  </table>
+</div>
 
-
+</body>
 {% endblock %}

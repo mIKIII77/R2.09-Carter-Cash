@@ -7,7 +7,7 @@ from .models import Article, Piece, Ville
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        labels = {"name":"Nom"}
+        labels = {"name":"Nom de l'article", "date_ajout":"Date d'ajout de l'article", "ville":"Ville de l'article","piece":"Type de la pièce" }
         fields = ('name', 'date_ajout', 'ville','piece')
 
     def __init__(self, *args, **kwargs):

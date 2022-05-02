@@ -1,39 +1,46 @@
 {% extends 'base.html' %}
 
-{% block title %}Les pièces en stock - Carter Cash{% endblock %}
+{% block title %}Les articles en stock - Carter Cash{% endblock %}
 
 {% block content %}
-  <h2>Toutes les pièces disponibles dans nos magasins :</h2>
+<body class="body-article-list"> 
+<div class="top-article-list">
+  <h1>La liste des articles disponibles dans nos magasins </h1>
 
-  <p>
-    <a href="{% url 'Article_add' %}">Ajouter une pièce</a>
-  </p>
-
-  <table border="1">
-    <thead>
-      <tr>
-        <th>Article</th>
-        <th>Date d'ajout</th>
-        <th>Ville</th>
-        <th>Pièce</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for Article in Articles %}
+</div>
+<div class="article-table">
+      <table class="table table-secondary table-striped table-bordered">
+        <thead>
+        <tr class="table-dark">  
+          <th class="table-top" scope="col">Nom de l'Article</th>
+          <th class="table-top" scope="col">Date d'ajout</th>
+          <th class="table-top" scope="col">Ville de l'article </th>
+          <th class="table-top" scope="col">Type de pièce</th>
+          <th class="table-top" scope="col"></th>
+          <th class="table-top" scope="col"> <a href="{% url 'Article_add' %}" type="button" class="btn btn-secondary btn-sm">Ajouter un article</a>
+          </th>
+          <caption>La table des articles actuellement présents dans la base de données du Carter Cash</caption>
+        </tr>
+        </thead>
+        {% for Article in Articles %}
         <tr>
-          <td><a href="{% url 'Article_change' Article.pk %}">{{ Article.name}}</a></td>
-          <td>{{ Article.date_ajout }}</td>
-          <td>{{ Article.ville.name }}</td>
-          <td>{{ Article.piece.name }}</td>     
-          <td><a href="{%url 'Article_delete' Article.pk %}"> Delete </a> 
+          <td class="table-bot">{{ Article.name}}</a></td>
+          <td class="table-bot">{{ Article.date_ajout }}</td>
+          <td class="table-bot">{{ Article.ville.name }}</td>
+          <td class="table-bot">{{ Article.piece.name }}</td>     
+          <td class="table-top" ><a href="{% url 'Article_change' Article.pk %}" type="button" class="btn btn-outline-success btn-sm"> Mettre à jour </a></td>
+          <td class="table-top"><a href="{%url 'Article_delete' Article.pk %}" type="button" class="btn btn-danger btn-sm"> Supprimer </a>
           </td>
         </tr>
-      {% empty %}
+        {% empty %}
+      </table>
         <tr>
           <td colspan="4">Votre base de données est vide ! <a href="{% url 'Article_add' %}"> Ajouter le premiere article</article></a>.</td>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </div>     
 
+    {% endfor %}
+  
+
+</body>
 {% endblock %}

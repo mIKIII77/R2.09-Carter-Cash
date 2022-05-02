@@ -1,0 +1,66 @@
+
+.form-articles {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.button-valid {
+    text-align: center;
+    margin-top: 7%;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.body-article-list {
+    background: #dddddd;
+}
+
+.titre-form-article {
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 3%;
+}
+
+.navbar-brand {
+    font-family: 'Quicksand';
+}
+
+.nav-link {
+    font-family: 'Hind Siliguri';
+}
+
+.d-flex {
+    font-family: 'Quicksand';
+}
+
+.table-top {
+    font-family: 'Quicksand';
+}
+
+.table-bot {
+    font-family: 'Hind Siliguri';
+}
+
+.article-table {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 3%;
+}
+
+.top-article-list {
+    font-family: 'Quicksand';
+    text-align: center;
+    margin-top: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: white;
+}
+
+/* font-family: 'Hind Siliguri', sans-serif; */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Poppins:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');

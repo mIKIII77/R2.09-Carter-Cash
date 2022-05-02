@@ -3,18 +3,41 @@
 {% block title %}Toutes les pieces - Carter Cash{% endblock %}
 
 {% block content %}
-  
-    <h1>La liste des pieces</h1>
-  
-    {% for piece in piece_list%}
-    <strong>Type : {{ piece}}</strong> <a href="{%url 'Piece_update' piece.id %}">Update</a> <a href="{%url 'Piece_delete' piece.id %}">Delete</a>
-    <ul>
-    <li>Ville :{{ piece.ville }}</li>
-    </ul>
-    {% empty %}
-      Votre base de données est vide ! <a href="{% url 'Piece_add' %}"> Ajouter la premiere piéce</a>.
-    {% endfor %}
-    
-
+<head>
+</head>
+  <body class="body-article-list">
+    <div class="top-article-list">
+    <h1>La liste des types de pieces</h1>
+  </div>
+    <div class="article-table">
+      <table class="table table-secondary table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark">
+          <th class="table-top" scope="col">Type de la pièce</th>
+          <th class="table-top" scope="col">Ville de la pièce</th>
+          <th class="table-top" scope="col"></th>
+          <th class="table-top" scope="col"><a class="btn btn-secondary btn-sm" href="{% url 'Piece_add' %}">Ajouter un type de pièce</a>
+          </th>
+          <caption>La table des pièces actuellement présents dans la base de données du Carter Cash</caption>
+        </tr>
+        </thead>
+        {% for piece in piece_list %}
+        <tr>
+          <td class="table-bot">{{ piece}}</td>
+          <td class="table-bot">{{ piece.ville}}</td> 
+          <td class="table-top" ><a href="{%url 'Piece_update' piece.id %}" type="button" class="btn btn-outline-success btn-sm"> Mettre à jour </a></td>
+          <td class="table-top"><a href="{%url 'Piece_delete' piece.id %}" type="button" class="btn btn-danger btn-sm"> Supprimer </a>
+          </td>
+        </tr>
+       
+        {% empty %}
+      </table>
+        <tr>
+          <td colspan="4">Votre base de données est vide ! <a href="{% url 'Article_add' %}"> Ajouter le premiere type de pièce</article></a>.</td>
+        </tr>
+      </div>
+      {%endfor%}
 
 {% endblock %}
+
+</body>
