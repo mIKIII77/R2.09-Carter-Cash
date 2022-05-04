@@ -1,14 +1,17 @@
+from pydoc import describe
 from django.db import models
 
 
 class Ville(models.Model):
     name = models.CharField(max_length=30)
+    describtion = models.CharField(max_length=500)
 
     def __str__(self):
         return self.name
 
 class Piece(models.Model):
     ville = models.ForeignKey(Ville, on_delete=models.CASCADE)
+    describtion = models.CharField(max_length=500)
     name = models.CharField(max_length=30)
 
     def __str__(self):

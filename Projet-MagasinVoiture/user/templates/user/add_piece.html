@@ -17,6 +17,7 @@
           {% csrf_token %}
           {{form.name|as_crispy_field}}
           {{form.ville|as_crispy_field}}
+          {{form.describtion|as_crispy_field}}
           <div class="button-valid">
           <input class="btn btn-success" type="submit" name="submit" value="Valider">
           <a class="btn btn-outline-danger"href="{% url 'Piece_list' %}">Annuler</a>

@@ -1,4 +1,6 @@
+from contextlib import ContextDecorator
 from http.client import HTTPResponse
+from multiprocessing import context
 from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from pkg_resources import require
@@ -6,6 +8,10 @@ from .models import Article, Ville, Piece
 from .forms import ArticleForm, VilleForm, PieceForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
+
+def home_view(request):
+    tamplate = "home.html"
+    return render(request, 'user/home.html')
 
 class ArticleListView(ListView):
     model = Article

@@ -15,5 +15,6 @@ urlpatterns = [
     path('delete_ville/<ville_id>,', views.delete_ville, name="Ville_delete"),
     path('delete_piece/<piece_id>,', views.delete_piece, name="Piece_delete"),
     path('delete_article/<article_id>,', views.delete_article, name="Article_delete"),
+    path('hme', views.home_view, name="Home"),
 
    ]
