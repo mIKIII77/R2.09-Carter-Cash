@@ -7,10 +7,10 @@
 </head>
   <body class="body-article-list">
     <div class="top-article-list">
-    <h1>La liste des types de pieces</h1>
+    <h1 class="shadow p-3 mb-5 bg-body rounded ">La liste des types de pieces</h1>
   </div>
     <div class="article-table">
-      <table class="table table-secondary table-striped table-bordered table-sm">
+      <table class="table table-light table-striped table-bordered table-sm">
         <thead>
         <tr class="table-dark">
           <th class="table-top" scope="col">Type de la pièce</th>
@@ -33,7 +33,7 @@
         {% empty %}
       </table>
         <tr>
-          <td colspan="4">Votre base de données est vide ! <a href="{% url 'Article_add' %}"> Ajouter le premiere type de pièce</article></a>.</td>
+          <td colspan="4">Aucune pièce, votre base de données est vide !<a href="{% url 'Article_add' %}"> Ajouter le premiere type de pièce</article></a>.</td>
         </tr>
       </div>
       {%endfor%}

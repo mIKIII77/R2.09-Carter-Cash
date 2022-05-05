@@ -2,7 +2,7 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path('', views.ArticleListView.as_view(), name='Article_changelist'),
+    path('articles', views.ArticleListView.as_view(), name='Article_changelist'),
     path('add/', views.ArticleCreateView, name='Article_add'),
     path('<int:pk>/', views.ArticleUpdateView.as_view(), name='Article_change'),
     path('ajax/load-piece/', views.load_piece, name='ajax_load_piece'),
@@ -15,6 +15,6 @@ urlpatterns = [
     path('delete_ville/<ville_id>,', views.delete_ville, name="Ville_delete"),
     path('delete_piece/<piece_id>,', views.delete_piece, name="Piece_delete"),
     path('delete_article/<article_id>,', views.delete_article, name="Article_delete"),
-    path('hme', views.home_view, name="Home"),
+    path('', views.home_view, name="Home"),
 
    ]

@@ -1,39 +1,78 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
 
 {% block title %}Toutes les villes - Carter Cash{% endblock %}
 
 {% block content %}
 <head>
+<head>
+<header>
   <div class="top-article-list">
-    <h1>La liste des villes</h1>
+    <h1 class="shadow p-3 mb-5 bg-body rounded ">La liste des villes</h1>
+    
   </div>  
+</header>
 <body class="body-article-list">
   <div class="article-table">
-    <table class="table table-secondary table-striped table-bordered table-sm">
+    <table class="table table-light table-striped table-bordered table-sm">
         <thead>
         <tr class="table-dark">
           <th scope="col">Nom de la ville</th>
           <th scope="col"><th class="table-top" scope="col"><a class="btn btn-secondary btn-sm" href="{% url 'Ville_add' %}">Ajouter une ville</a>
           </th>
           <caption>La table des villes actuellement présents dans la base de données du Carter Cash</caption>
-
         </tr>
         </thead>
         {% for ville in ville_list %}
         <tr>
-          <td>{{ ville }}</td>    
-          <td> <a href="{%url 'Ville_update' ville.id %}"type="button" class="btn btn-outline-success" > Mettre à jour </a> </td> 
-          <td><a href="{%url 'Ville_delete' ville.id %}" type="button" class="btn btn-danger"> Supprimer </a> </td>
+          <td>{{ ville }}</td>  
+          <td class="case-butt"> <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Descri.
+          </button> </td>
+          <td><div class="btn-group">
+            <a href="{%url 'Ville_update' ville.id %}" class="btn btn-success btn-sm">Mettre à jour</a>
+            <a href="{%url 'Ville_delete' ville.id %}" class="btn btn-danger btn-sm">Supprimer </a>
+          </div> </td>
         </tr>
         {% empty %}
       </table>
         <tr>
-          <td colspan="4">Votre base de données est vide ! <a href="{% url 'Ville_add' %}"> Ajouter la premiere ville</article></a>.</td>
+          <td colspan="4">Aucune ville n'est présente, votre base de données est vide ! <a href="{% url 'Ville_add' %}"> Ajouter la premiere ville</article></a>.</td>
         </tr>
     </tbody>
     {% endfor %}
   </table>
 </div>
 
+{% for ville in ville_list %}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        {% csrf_token %}
+        <h5 class="modal-title" id="exampleModalLabel">Description de la ville {{ ville }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ville.describtion}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
+{% empty %}
+
+{% endfor %}
+
+
 {% endblock %}
+
+
+
+
+

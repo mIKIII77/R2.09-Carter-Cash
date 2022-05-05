@@ -9,8 +9,9 @@ from .forms import ArticleForm, VilleForm, PieceForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 
+
 def home_view(request):
-    tamplate = "home.html"
+    tmplate = "home.html"
     return render(request, 'user/home.html')
 
 class ArticleListView(ListView):

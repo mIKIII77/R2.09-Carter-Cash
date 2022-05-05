@@ -4,11 +4,18 @@ from django import forms
 from .models import Article, Piece, Ville
 
 
-class ArticleForm(forms.ModelForm):
+class ArticleForm(ModelForm):
     class Meta:
         model = Article
         labels = {"name":"Nom de l'article", "date_ajout":"Date d'ajout de l'article", "ville":"Ville de l'article","piece":"Type de la pièce" }
         fields = ('name', 'date_ajout', 'ville','piece')
+        
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control  form-control-lg'}),
+            'date_ajout': forms.TextInput(attrs={'class': 'form-control'}),
+            'ville': forms.Select(attrs={'class': 'form-control form-select'}),           
+            'piece': forms.Select(attrs={'class': 'form-control form-select'}),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -26,14 +33,25 @@ class ArticleForm(forms.ModelForm):
 class VilleForm(ModelForm):
     class Meta: 
         model = Ville
-        labels = {"name":"Nom"}
+        labels = {"name":"Nom de la ville","describtion": "Description de la ville" }
         fields = "__all__"
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control  form-control-lg'}),
+            'describtion': forms.Textarea(attrs={'class': 'form-control'}),
+        }
 
 class PieceForm(ModelForm):
     class Meta: 
         model = Piece
-        labels = {"name":"Nom"}
+        labels = {"name":"Nom", "describtion": "Description du type de la pièce"}
         fields = "__all__"
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control  form-control-lg'}),
+            'ville': forms.Select(attrs={'class': 'form-control form-select'}),
+            'describtion': forms.Textarea(attrs={'class': 'form-control'}),
+        }
 
 
 
