@@ -1,6 +1,7 @@
 from contextlib import ContextDecorator
 from http.client import HTTPResponse
 from multiprocessing import context
+from unicodedata import name
 from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from pkg_resources import require
@@ -107,3 +108,17 @@ def delete_article(request, article_id):
     article = Article.objects.get(pk=article_id)
     article.delete()
     return redirect('Article_changelist')
+
+def search_article(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        Articles = Article.objects.filter(name__contains=searched)
+
+        return render(request,
+        'user/search_article.html',
+        {'searched':searched,
+        'Articles':Articles})
+    else:
+        return render(request,
+        'user/search_article.html',
+        {})

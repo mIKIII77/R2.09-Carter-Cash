@@ -14,20 +14,19 @@
         <thead>
         <tr class="table-dark">
           <th class="table-top" scope="col">Type de la pièce</th>
-          <th class="table-top" scope="col">Ville de la pièce</th>
-          <th class="table-top" scope="col"></th>
-          <th class="table-top" scope="col"><a class="btn btn-secondary btn-sm" href="{% url 'Piece_add' %}">Ajouter un type de pièce</a>
+          <th class="table-top" scope="col">Ville du magasin</th>
+          <th class="table-top" scope="col"> </th>
+          <th class="table-top text-end" scope="col"><a class="btn btn-secondary btn-sm" href="{% url 'Piece_add' %}">Ajouter un type de pièce</a>
           </th>
-          <caption>La table des pièces actuellement présents dans la base de données du Carter Cash</caption>
+          <caption>La table des types de pièces actuellement présents dans la base de données du Carter Cash</caption>
         </tr>
         </thead>
         {% for piece in piece_list %}
         <tr>
           <td class="table-bot">{{ piece}}</td>
           <td class="table-bot">{{ piece.ville}}</td> 
-          <td class="table-top" ><a href="{%url 'Piece_update' piece.id %}" type="button" class="btn btn-outline-success btn-sm"> Mettre à jour </a></td>
-          <td class="table-top"><a href="{%url 'Piece_delete' piece.id %}" type="button" class="btn btn-danger btn-sm"> Supprimer </a>
-          </td>
+          <td class="table-top text-center"> <a href="#" class="btn btn-info btn-sm"> Déscription du type </a></td>
+          <td class="table-top text-end" ><a href="{%url 'Piece_update' piece.id %}" type="button" class="btn btn-outline-success btn-sm"> Mettre à jour </a> <a href="{%url 'Piece_delete' piece.id %}" type="button" class="btn btn-danger btn-sm"> Supprimer </a></td>
         </tr>
        
         {% empty %}

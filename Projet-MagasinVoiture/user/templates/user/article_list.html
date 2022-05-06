@@ -16,8 +16,7 @@
           <th class="table-top" scope="col">Date d'ajout</th>
           <th class="table-top" scope="col">Ville de l'article </th>
           <th class="table-top" scope="col">Type de pièce</th>
-          <th class="table-top" scope="col"></th>
-          <th class="table-top" scope="col"> <a href="{% url 'Article_add' %}" type="button" class="btn btn-secondary btn-sm">Ajouter un article</a>
+          <th class="table-top text-end" scope="col"> <a href="{% url 'Article_add' %}" type="button" class="btn btn-secondary btn-sm">Ajouter un article</a>
           </th>
           <caption>La table des articles actuellement présents dans la base de données du Carter Cash</caption>
         </tr>
@@ -28,8 +27,7 @@
           <td class="table-bot">{{ Article.date_ajout }}</td>
           <td class="table-bot">{{ Article.ville.name }}</td>
           <td class="table-bot">{{ Article.piece.name }}</td>     
-          <td class="table-top" ><a href="{% url 'Article_change' Article.pk %}" type="button" class="btn btn-outline-success btn-sm"> Mettre à jour </a></td>
-          <td class="table-top"><a href="{%url 'Article_delete' Article.pk %}" type="button" class="btn btn-danger btn-sm"> Supprimer </a>
+          <td class="table-top text-end"> <a href="{% url 'Article_change' Article.pk %}" type="button" class="btn btn-outline-success btn-sm"> Mettre à jour </a> <a href="{%url 'Article_delete' Article.pk %}" type="button" class="btn btn-danger btn-sm"> Supprimer </a>
           </td>
         </tr>
         {% empty %}
