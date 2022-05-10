@@ -3,39 +3,44 @@
 {% block title %}Les articles en stock - Carter Cash{% endblock %}
 
 {% block content %}
-<body class="body-article-list"> 
-<div class="top-article-list">
-  <h1 class="shadow p-3 mb-5 bg-body rounded ">La liste des articles disponibles dans nos magasins </h1>
 
-</div>
-<div class="article-table">
-      <table class="table table-light table-striped table-bordered">
-        <thead>
-        <tr class="table-dark">  
+<body class="body-article-list">
+  <div class="top-article-list">
+    <h1 class="shadow p-3 mb-5 bg-body rounded ">La liste des articles disponibles dans nos magasins </h1>
+
+  </div>
+  <div class="article-table">
+    <table class="table table-light table-striped table-bordered">
+      <thead>
+        <tr class="table-dark">
           <th class="table-top" scope="col">Nom de l'Article</th>
           <th class="table-top" scope="col">Date d'ajout</th>
           <th class="table-top" scope="col">Ville de l'article </th>
           <th class="table-top" scope="col">Type de pièce</th>
-          <th class="table-top text-end" scope="col"> <a href="{% url 'Article_add' %}" type="button" class="btn btn-secondary btn-sm">Ajouter un article</a>
+          <th class="table-top text-end" scope="col"> <a href="{% url 'Article_add' %}" type="button"
+              class="btn btn-secondary btn-sm">Ajouter un article</a>
           </th>
           <caption>La table des articles actuellement présents dans la base de données du Carter Cash</caption>
         </tr>
-        </thead>
-        {% for Article in Articles %}
-        <tr>
-          <td class="table-bot">{{ Article.name}}</a></td>
-          <td class="table-bot">{{ Article.date_ajout }}</td>
-          <td class="table-bot">{{ Article.ville.name }}</td>
-          <td class="table-bot">{{ Article.piece.name }}</td>     
-          <td class="table-top text-end"> <a href="{% url 'Article_change' Article.pk %}" type="button" class="btn btn-outline-success btn-sm"> Mettre à jour </a> <a href="{%url 'Article_delete' Article.pk %}" type="button" class="btn btn-danger btn-sm"> Supprimer </a>
-          </td>
-        </tr>
-        {% empty %}
-      </table>
-        <tr>
-          <td colspan="4">Aucun article, votre base de données est vide ! <a href="{% url 'Article_add' %}"> Ajouter le premiere article</article></a>.</td>
-        </tr>
-      </div>     
-    {% endfor %}
+      </thead>
+      {% for Article in Articles %}
+      <tr>
+        <td class="table-bot">{{ Article.name}}</a></td>
+        <td class="table-bot">{{ Article.date_ajout }}</td>
+        <td class="table-bot">{{ Article.ville.name }}</td>
+        <td class="table-bot">{{ Article.piece.name }}</td>
+        <td class="table-top text-end"> <a href="{% url 'Article_change' Article.pk %}" type="button"
+            class="btn btn-outline-success btn-sm"> Mettre à jour </a> <a href="{%url 'Article_delete' Article.pk %}"
+            type="button" class="btn btn-danger btn-sm"> Supprimer </a>
+        </td>
+      </tr>
+      {% empty %}
+    </table>
+    <tr>
+      <td colspan="4">Aucun article, votre base de données est vide ! <a href="{% url 'Article_add' %}"> Ajouter le
+          premiere article</article></a>.</td>
+    </tr>
+  </div>
+  {% endfor %}
 </body>
 {% endblock %}

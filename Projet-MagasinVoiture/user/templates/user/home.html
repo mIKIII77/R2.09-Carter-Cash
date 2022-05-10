@@ -4,27 +4,29 @@
 {% block title %}Toutes les pieces - Carter Cash{% endblock %}
 
 {% block content %}
+
 <head>
   <title> Carter Cash</title>
   <link rel="stylesheet" href=" {% static 'css/styles.css' %} ">
 </head>
 
 <body class="home-page-back">
-<div>
+  <div>
     <header>
- 
+
     </header>
-  
+
     <main>
       <h1 class="title-home">Carter Cash</h1>
       <p class="text-bott-home">Leader des pièces détachées auto neuves et d'origine au meilleur prix</p>
       <div class="text-center">
-      <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Qui sommes nous ? 
-      </button>
-    </div>
-    
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Qui sommes nous ?
+        </button>
+      </div>
+
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -32,7 +34,11 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Avec plus de 350 points de vente et de stockage, le réseau Carter Cash offre une couverture complète sur toute la France. Ainsi, nos clients, professionnels et particuliers, peuvent trouver dans nos magasins les pièces auto nécessaires pour l'entretien et la réparation de leurs voitures, quelle que soit leur marque. Chaque distributeur Carter Cash propose une collection complète de pièces détachées automobile, peinture, carrosserie, outillage et équipements.
+              Avec plus de 350 points de vente et de stockage, le réseau Carter Cash offre une couverture complète sur
+              toute la France. Ainsi, nos clients, professionnels et particuliers, peuvent trouver dans nos magasins les
+              pièces auto nécessaires pour l'entretien et la réparation de leurs voitures, quelle que soit leur marque.
+              Chaque distributeur Carter Cash propose une collection complète de pièces détachées automobile, peinture,
+              carrosserie, outillage et équipements.
             </div>
             <div class="modal-footer">
               <a type="button" class="btn btn-info" href="{% url 'Article_changelist' %}">La liste des articles</a>

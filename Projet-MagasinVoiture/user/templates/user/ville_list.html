@@ -6,63 +6,66 @@
 {% block title %}Toutes les villes - Carter Cash{% endblock %}
 
 {% block content %}
+
 <head>
   <link rel="stylesheet" href=" {% static 'css/styles.css' %} ">
-<head>
-<header>
-  <div class="top-article-list">
-    <h1 class="shadow p-3 mb-5 bg-body rounded ">La liste des villes ou nous sommes présent</h1>
-    
-  </div>  
-</header>
-<body class="body-article-list">
-  <div class="article-table">
-    <table class="table table-light table-striped table-bordered table-sm">
+
+  <head>
+    <header>
+      <div class="top-article-list">
+        <h1 class="shadow p-3 mb-5 bg-body rounded ">La liste des villes ou nous sommes présent</h1>
+
+      </div>
+    </header>
+
+  <body class="body-article-list">
+    <div class="article-table">
+      <table class="table table-light table-striped table-bordered table-sm">
         <thead>
-        <tr class="table-dark">
-          <th scope="col">Nom de la ville</th>
-          <th scope="col"><th class="table-top text-end" scope="col"><a class="btn btn-secondary btn-sm" href="{% url 'Ville_add' %}">Ajouter une ville</a>
-          </th>
-          <caption>La table des villes actuellement présents dans la base de données du Carter Cash</caption>
-        </tr>
+          <tr class="table-dark">
+            <th scope="col">Nom de la ville</th>
+            <th scope="col">
+            <th class="table-top text-end" scope="col"><a class="btn btn-secondary btn-sm"
+                href="{% url 'Ville_add' %}">Ajouter une ville</a>
+            </th>
+            <caption>La table des villes actuellement présents dans la base de données du Carter Cash</caption>
+          </tr>
         </thead>
         {% for ville in ville_list %}
         <tr>
-          <td>{{ ville }}</td>  
-          <td class="text-center"><a href="{%url 'Ville_delete' ville.id %}" class="btn btn-info btn-sm"> Déscription de la ville </a> </td>
-          <td class="text-end"><a href="{%url 'Ville_update' ville.id %}" class="btn btn-outline-success btn-sm">Mettre à jour</a> <a href="{%url 'Ville_delete' ville.id %}" class="btn btn-danger btn-sm">Supprimer </a></td>
-        
+          <td>{{ ville }}</td>
+          <td class="text-center"><a href="{%url 'Ville_delete' ville.id %}" class="btn btn-info btn-sm"> Déscription de
+              la ville </a> </td>
+          <td class="text-end"><a href="{%url 'Ville_update' ville.id %}" class="btn btn-outline-success btn-sm">Mettre
+              à jour</a> <a href="{%url 'Ville_delete' ville.id %}" class="btn btn-danger btn-sm">Supprimer </a></td>
+
         </tr>
         {% empty %}
       </table>
-        <tr>
-          <td colspan="4">Aucune ville n'est présente, votre base de données est vide ! <a href="{% url 'Ville_add' %}"> Ajouter la premiere ville</article></a>.</td>
-        </tr>
-    </tbody>
-    {% endfor %}
-  </table>
-</div>
+      <tr>
+        <td colspan="4">Aucune ville n'est présente, votre base de données est vide ! <a href="{% url 'Ville_add' %}">
+            Ajouter la premiere ville</article></a>.</td>
+      </tr>
+      </tbody>
+      {% endfor %}
+      </table>
+    </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        
-        <h5 class="modal-title" id="exampleModalLabel">Description de la ville {{ ville }}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">Description de la ville {{ ville }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</body>
-{% endblock %}
-
-
-
-
-
+  </body>
+  {% endblock %}
