@@ -34,7 +34,7 @@
         {% for ville in ville_list %}
         <tr>
           <td>{{ ville }}</td>
-          <td class="text-center"><a href="{%url 'Ville_delete' ville.id %}" class="btn btn-info btn-sm"> Déscription de
+          <td class="text-center"><a href="{%url 'Show_ville' ville.id %}" class="btn btn-info btn-sm"> Déscription de
               la ville </a> </td>
           <td class="text-end"><a href="{%url 'Ville_update' ville.id %}" class="btn btn-outline-success btn-sm">Mettre
               à jour</a> <a href="{%url 'Ville_delete' ville.id %}" class="btn btn-danger btn-sm">Supprimer </a></td>

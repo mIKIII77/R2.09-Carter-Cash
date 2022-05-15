@@ -17,6 +17,8 @@ urlpatterns = [
     path('delete_article/<article_id>,', views.delete_article, name="Article_delete"),
     path('', views.home_view, name="Home"),
     path('search_article', views.search_article, name="Article_recherche"),
+    path('show_ville/<ville_id>', views.show_ville, name="Show_ville"),
+    path('show_piece/<piece_id>', views.show_piece, name="Show_piece"),
 
 
    ]

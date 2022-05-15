@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Déscription de la ville - Carter Cash{% endblock %}
+
+{% block content %}
+
+<body class="body-article-list">
+<div class="describtion">
+    <div class="card">
+        <div class="card-header text-center">
+           <h1 class="headers"> {{ ville }} </h1>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Description</h5>
+          <p class="card-text">{{ ville.describtion}}</p>
+          <a class="btn btn-outline-info" href="{% url 'Ville_list' %}">Toutes les villes</a>
+        </div>
+      </div>
+</body>
+</div>
+
+
+{% endblock %}

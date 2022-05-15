@@ -122,3 +122,13 @@ def search_article(request):
         return render(request,
         'user/search_article.html',
         {})
+
+def show_ville(request, ville_id):
+    ville = Ville.objects.get(pk=ville_id)
+    return render(request, 'user/show_ville.html',
+        {'ville': ville})
+
+def show_piece(request, piece_id):
+    piece = Piece.objects.get(pk=piece_id)
+    return render(request, 'user/show_piece.html',
+        {'piece': piece})
