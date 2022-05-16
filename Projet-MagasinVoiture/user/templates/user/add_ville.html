@@ -23,6 +23,7 @@
       {{form.name|as_crispy_field}}
       {{form.describtion|as_crispy_field}}
       <div class="button-valid">
+        <p>* - Champs obligatoires </p>
         <input class="btn btn-success" type="submit" name="submit" value="Valider">
         <a class="btn btn-outline-danger" href="{% url 'Ville_list' %}">Annuler</a>
       </div>

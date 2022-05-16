@@ -34,7 +34,7 @@ def ArticleCreateView(request):
     ville_id = request.GET.get('ville')
     piece = Piece.objects.filter(ville_id=ville_id).order_by('name')
     if request.method == "POST":
-        form = ArticleForm(request.POST)
+        form = ArticleForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('Article_changelist')

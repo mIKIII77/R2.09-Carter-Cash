@@ -25,7 +25,7 @@
       </thead>
       {% for Article in Articles %}
       <tr>
-        <td class="table-bot">{{ Article.name}}</a></td>
+        <td class="table-bot">{{ Article.name}}</td>
         <td class="table-bot">{{ Article.date_ajout }}</td>
         <td class="table-bot">{{ Article.ville.name }}</td>
         <td class="table-bot">{{ Article.piece.name }}</td>
@@ -34,15 +34,25 @@
             type="button" class="btn btn-danger btn-sm"> Supprimer </a>
         </td>
       </tr>
-      <div class="card mb-3">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{ Article.name}}</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted"> Date d'ajout : {{ Article.date_ajout }}</small></p>
+      <div class="container">
+ 
+      <div class="card mb-3" style="max-height: 400px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{Article.article_image.url}}" class="card-img-top" alt="Responsive image" style="max-height: 300px;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ Article.name}}</h5>
+              <p class="card-text"> Ce article se trouve dans la ville: {{ Article.ville.name }} </p>
+              <p class="card-text"> {{ Article.piece.name }} </p>
+
+              <p class="card-text"><small class="text-muted"> Date d'ajout: {{ Article.date_ajout }}</small></p>
+            </div>
+          </div>
         </div>
       </div>
-      
+
       {% empty %}
     </table>
     <tr>

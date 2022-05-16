@@ -104,5 +104,16 @@ thead {
   font-family: "Hind Siliguri";
 }
 
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Card1 Card2 Card3"
+    "Card4 Card5 Card6"
+    ". . .";
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Poppins:wght@200;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap");
