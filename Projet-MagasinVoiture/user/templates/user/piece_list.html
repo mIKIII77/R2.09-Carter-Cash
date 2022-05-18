@@ -28,7 +28,8 @@
       <tr>
         <td class="table-bot">{{ piece}}</td>
         <td class="table-bot">{{ piece.ville}}</td>
-        <td class="table-top text-center"> <a href="{%url 'Show_piece' piece.id %}" class="btn btn-info btn-sm"> Déscription du type </a></td>
+        <td class="table-top text-center"> <a href="{%url 'Show_piece' piece.id %}" class="btn btn-info btn-sm">
+            Déscription du type </a></td>
         <td class="table-top text-end"><a href="{%url 'Piece_update' piece.id %}" type="button"
             class="btn btn-outline-success btn-sm"> Mettre à jour </a> <a href="{%url 'Piece_delete' piece.id %}"
             type="button" class="btn btn-danger btn-sm"> Supprimer </a></td>

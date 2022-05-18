@@ -1,26 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Déscription de la piece - Carter Cash{% endblock %}
+{% block title %}Déscription de la piece: {{ piece.name }} - Carter Cash{% endblock %}
 
 {% block content %}
 
 <body class="body-article-list">
-<div class="describtion">
+  <div class="describtion">
     <div class="card">
-        <div class="card-header text-center">
-            <h1 class="headers">{{ piece.name }}</h1>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Description</h5>
-          <p class="card-text">{{ piece.describtion}}</p>
+      <div class="card-header text-center">
+        <h1 class="headers">{{ piece.name }}</h1>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Description</h5>
+        <p class="card-text">{{ piece.describtion}}</p>
+        <div class="text-end">
           <a class="btn btn-outline-info" href="{% url 'Piece_list' %}">Toutes les pieces</a>
         </div>
-        <div class="card-footer text-muted">
-          Toutes les pièces de ce type se trouvent à - {{ piece.ville }}
-        </div>
-      
       </div>
+      <div class="card-footer text-muted">
+        Toutes les pièces de ce type se trouvent à - {{ piece.ville }}
+      </div>
+
+    </div>
 </body>
 </div>
 

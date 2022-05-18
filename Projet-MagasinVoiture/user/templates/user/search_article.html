@@ -30,9 +30,14 @@
         <td class="table-bot">{{ Article.date_ajout }}</td>
         <td class="table-bot">{{ Article.ville.name }}</td>
         <td class="table-bot">{{ Article.piece.name }}</td>
-        <td class="table-top text-end"> <a href="{% url 'Article_change' Article.pk %}" type="button"
-            class="btn btn-outline-success btn-sm"> Mettre à jour </a> <a href="{%url 'Article_delete' Article.pk %}"
-            type="button" class="btn btn-danger btn-sm"> Supprimer </a>
+        <td class="table-top text-end">
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <a href="{%url 'Show_article' Article.id %}" type="button" class="btn btn-outline-info btn-sm"> L'image de
+              l'article </a>
+            <a href="{% url 'Article_change' Article.pk %}" type="button" class="btn btn-outline-success btn-sm"> Mettre
+              à jour </a>
+            <a href="{%url 'Article_delete' Article.pk %}" type="button" class="btn btn-danger btn-sm"> Supprimer </a>
+          </div>
         </td>
       </tr>
     </table>
